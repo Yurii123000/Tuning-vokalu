@@ -1,0 +1,253 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="melBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08182b" />
+      <stop offset="50%" stop-color="#0a223d" />
+      <stop offset="100%" stop-color="#04101e" />
+    </linearGradient>
+    <linearGradient id="blobOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff9d00" />
+      <stop offset="50%" stop-color="#ff6b08" />
+      <stop offset="100%" stop-color="#f43f5e" />
+    </linearGradient>
+    <linearGradient id="blobCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="blobPink" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff2a85" />
+      <stop offset="100%" stop-color="#fb7185" />
+    </linearGradient>
+    <filter id="mGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="700" fill="url(#melBg)" />
+
+  <!-- Melodyne Header Bar -->
+  <rect x="0" y="0" width="1200" height="54" fill="#061220" />
+  <rect x="0" y="52" width="1200" height="2" fill="#ff7e40" />
+
+  <!-- Melodyne Logo and Title -->
+  <g transform="translate(25, 12)">
+    <!-- Melodyne swirl / spiral icon -->
+    <circle cx="16" cy="15" r="14" fill="#ff6b08" filter="url(#mGlow)"/>
+    <path d="M 16 5 A 10 10 0 0 1 24 20 A 7 7 0 0 1 12 18 A 4 4 0 0 1 16 13" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="40" y="22" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="19" letter-spacing="1.5">CELEMONY MELODYNE 5</text>
+    <text x="310" y="22" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="12">STUDIO EDITION • VOCAL PITCH &amp; TIMING CORRECTION</text>
+  </g>
+
+  <!-- Pitch Drift / Correct Pitch Macro Buttons -->
+  <g transform="translate(760, 10)">
+    <rect x="0" y="0" width="120" height="32" rx="6" fill="#133156" stroke="#ff7e40" stroke-width="1.5"/>
+    <text x="14" y="20" fill="#ff9d00" font-family="sans-serif" font-size="11" font-weight="bold">🎯 CORRECT PITCH</text>
+
+    <rect x="130" y="0" width="135" height="32" rx="6" fill="#133156" stroke="#00e5ff" stroke-width="1.5"/>
+    <text x="14" y="20" fill="#00e5ff" font-family="sans-serif" font-size="11" font-weight="bold" transform="translate(130, 0)">⚡ PITCH DRIFT: 100%</text>
+
+    <rect x="275" y="0" width="135" height="32" rx="6" fill="#133156" stroke="#ec4899" stroke-width="1.5"/>
+    <text x="14" y="20" fill="#ff73b3" font-family="sans-serif" font-size="11" font-weight="bold" transform="translate(275, 0)">✨ FORMANT: ZERO</text>
+  </g>
+
+  <!-- Timeline Time Ruler -->
+  <g transform="translate(100, 54)">
+    <rect width="1100" height="28" fill="#0a1d33" />
+    <line x1="0" y1="28" x2="1100" y2="28" stroke="#1e3a5f" />
+    <!-- Bar numbers -->
+    <text x="40" y="19" fill="#94a3b8" font-family="monospace" font-size="11">BAR 1.1</text>
+    <line x1="40" y1="20" x2="40" y2="28" stroke="#38bdf8" stroke-width="2"/>
+    <text x="240" y="19" fill="#94a3b8" font-family="monospace" font-size="11">BAR 1.2</text>
+    <line x1="240" y1="20" x2="240" y2="28" stroke="#38bdf8" />
+    <text x="440" y="19" fill="#94a3b8" font-family="monospace" font-size="11">BAR 1.3</text>
+    <line x1="440" y1="20" x2="440" y2="28" stroke="#38bdf8" />
+    <text x="640" y="19" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="bold">BAR 2.1 (CHORUS VOCAL)</text>
+    <line x1="640" y1="16" x2="640" y2="28" stroke="#ff7e40" stroke-width="3"/>
+    <text x="840" y="19" fill="#94a3b8" font-family="monospace" font-size="11">BAR 2.2</text>
+    <line x1="840" y1="20" x2="840" y2="28" stroke="#38bdf8" />
+    <text x="1040" y="19" fill="#94a3b8" font-family="monospace" font-size="11">BAR 2.3</text>
+  </g>
+
+  <!-- Left Pitch Staff Column (Piano Keys & Note Names) -->
+  <g transform="translate(0, 82)">
+    <rect width="100" height="618" fill="#081424" stroke="#1e3a5f" />
+
+    <!-- Staff Rows -->
+    <!-- C4 -->
+    <rect x="0" y="0" width="100" height="51" fill="#132b49" stroke="#1d406b" stroke-width="0.5"/>
+    <text x="25" y="32" fill="#00f2fe" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="bold">C4</text>
+    <rect x="80" y="0" width="20" height="51" fill="#f8fafc" />
+
+    <!-- B3 -->
+    <rect x="0" y="51" width="100" height="51" fill="#0b1a2f" stroke="#1d406b" stroke-width="0.5"/>
+    <text x="25" y="83" fill="#94a3b8" font-family="sans-serif" font-size="13">B3</text>
+    <rect x="80" y="51" width="20" height="51" fill="#f8fafc" />
+
+    <!-- A#3 / Bb3 -->
+    <rect x="0" y="102" width="100" height="51" fill="#071220" stroke="#1d406b" stroke-width="0.5"/>
+    <text x="20" y="134" fill="#64748b" font-family="sans-serif" font-size="12">A#3</text>
+    <rect x="70" y="102" width="30" height="51" fill="#0f172a" />
+
+    <!-- A3 -->
+    <rect x="0" y="153" width="100" height="51" fill="#0b1a2f" stroke="#1d406b" stroke-width="0.5"/>
+    <text x="25" y="185" fill="#38bdf8" font-family="sans-serif" font-size="13" font-weight="bold">A3</text>
+    <rect x="80" y="153" width="20" height="51" fill="#f8fafc" />
+
+    <!-- G#3 -->
+    <rect x="0" y="204" width="100" height="51" fill="#071220" stroke="#1d406b" stroke-width="0.5"/>
+    <text x="20" y="236" fill="#64748b" font-family="sans-serif" font-size="12">G#3</text>
+    <rect x="70" y="204" width="30" height="51" fill="#0f172a" />
+
+    <!-- G3 -->
+    <rect x="0" y="255" width="100" height="51" fill="#0b1a2f" stroke="#1d406b" stroke-width="0.5"/>
+    <text x="25" y="287" fill="#ff7e40" font-family="sans-serif" font-size="13" font-weight="bold">G3</text>
+    <rect x="80" y="255" width="20" height="51" fill="#f8fafc" />
+
+    <!-- F#3 -->
+    <rect x="0" y="306" width="100" height="51" fill="#071220" stroke="#1d406b" stroke-width="0.5"/>
+    <text x="20" y="338" fill="#64748b" font-family="sans-serif" font-size="12">F#3</text>
+    <rect x="70" y="306" width="30" height="51" fill="#0f172a" />
+
+    <!-- F3 -->
+    <rect x="0" y="357" width="100" height="51" fill="#0b1a2f" stroke="#1d406b" stroke-width="0.5"/>
+    <text x="25" y="389" fill="#94a3b8" font-family="sans-serif" font-size="13">F3</text>
+    <rect x="80" y="357" width="20" height="51" fill="#f8fafc" />
+
+    <!-- E3 -->
+    <rect x="0" y="408" width="100" height="51" fill="#0b1a2f" stroke="#1d406b" stroke-width="0.5"/>
+    <text x="25" y="440" fill="#38bdf8" font-family="sans-serif" font-size="13" font-weight="bold">E3</text>
+    <rect x="80" y="408" width="20" height="51" fill="#f8fafc" />
+
+    <!-- D#3 -->
+    <rect x="0" y="459" width="100" height="51" fill="#071220" stroke="#1d406b" stroke-width="0.5"/>
+    <text x="20" y="491" fill="#64748b" font-family="sans-serif" font-size="12">D#3</text>
+    <rect x="70" y="459" width="30" height="51" fill="#0f172a" />
+
+    <!-- D3 -->
+    <rect x="0" y="510" width="100" height="51" fill="#0b1a2f" stroke="#1d406b" stroke-width="0.5"/>
+    <text x="25" y="542" fill="#94a3b8" font-family="sans-serif" font-size="13">D3</text>
+    <rect x="80" y="510" width="20" height="51" fill="#f8fafc" />
+
+    <!-- C3 -->
+    <rect x="0" y="561" width="100" height="57" fill="#132b49" stroke="#1d406b" stroke-width="0.5"/>
+    <text x="25" y="597" fill="#00f2fe" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="bold">C3</text>
+    <rect x="80" y="561" width="20" height="57" fill="#f8fafc" />
+  </g>
+
+  <!-- Main Note Grid (Pitch Lanes & Blobs) -->
+  <g transform="translate(100, 82)">
+    <!-- Horizontal Semitone Background Stripes -->
+    <rect x="0" y="0" width="1100" height="51" fill="#0b1e36" opacity="0.6"/>
+    <rect x="0" y="51" width="1100" height="51" fill="#081527" opacity="0.6"/>
+    <rect x="0" y="102" width="1100" height="51" fill="#050e1b" opacity="0.6"/>
+    <rect x="0" y="153" width="1100" height="51" fill="#0b1e36" opacity="0.6"/>
+    <rect x="0" y="204" width="1100" height="51" fill="#050e1b" opacity="0.6"/>
+    <rect x="0" y="255" width="1100" height="51" fill="#0b1e36" opacity="0.6"/>
+    <rect x="0" y="306" width="1100" height="51" fill="#050e1b" opacity="0.6"/>
+    <rect x="0" y="357" width="1100" height="51" fill="#0b1e36" opacity="0.6"/>
+    <rect x="0" y="408" width="1100" height="51" fill="#0b1e36" opacity="0.6"/>
+    <rect x="0" y="459" width="1100" height="51" fill="#050e1b" opacity="0.6"/>
+    <rect x="0" y="510" width="1100" height="51" fill="#0b1e36" opacity="0.6"/>
+    <rect x="0" y="561" width="1100" height="57" fill="#0b1e36" opacity="0.6"/>
+
+    <!-- Grid Horizontal Lines -->
+    <g stroke="#16385d" stroke-width="1">
+      <line x1="0" y1="51" x2="1100" y2="51" />
+      <line x1="0" y1="102" x2="1100" y2="102" />
+      <line x1="0" y1="153" x2="1100" y2="153" />
+      <line x1="0" y1="204" x2="1100" y2="204" />
+      <line x1="0" y1="255" x2="1100" y2="255" />
+      <line x1="0" y1="306" x2="1100" y2="306" />
+      <line x1="0" y1="357" x2="1100" y2="357" />
+      <line x1="0" y1="408" x2="1100" y2="408" />
+      <line x1="0" y1="459" x2="1100" y2="459" />
+      <line x1="0" y1="510" x2="1100" y2="510" />
+      <line x1="0" y1="561" x2="1100" y2="561" />
+    </g>
+
+    <!-- Vertical Bar Beat Lines -->
+    <g stroke="#1d436e" stroke-width="1" opacity="0.4">
+      <line x1="100" y1="0" x2="100" y2="618" />
+      <line x1="200" y1="0" x2="200" y2="618" />
+      <line x1="300" y1="0" x2="300" y2="618" />
+      <line x1="400" y1="0" x2="400" y2="618" />
+      <line x1="500" y1="0" x2="500" y2="618" />
+      <line x1="600" y1="0" x2="600" y2="618" stroke="#ff7e40" stroke-width="2"/>
+      <line x1="700" y1="0" x2="700" y2="618" />
+      <line x1="800" y1="0" x2="800" y2="618" />
+      <line x1="900" y1="0" x2="900" y2="618" />
+      <line x1="1000" y1="0" x2="1000" y2="618" />
+    </g>
+
+    <!-- Continuous Vocal Pitch Curve (Red/Orange dashed: Untuned Raw Drift) -->
+    <path d="M 30 435 Q 60 445 100 428 T 160 380 T 230 268 T 320 282 T 420 180 T 520 145 T 620 40 T 730 48 T 840 168 T 940 270 T 1050 425" 
+          fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-dasharray="6,4" opacity="0.75" />
+    <text x="35" y="455" fill="#f43f5e" font-family="sans-serif" font-size="11" font-weight="bold">--- СИРИЙ ПІТЧ (Фальшиві відхилення)</text>
+
+    <!-- Corrected Vocal Pitch Curve (Solid Cyan Glowing: Tuned Center) -->
+    <path d="M 30 408 L 140 408 Q 155 408 170 255 L 290 255 Q 310 255 330 153 L 490 153 Q 510 153 530 25 L 750 25 Q 770 25 790 153 L 890 153 Q 910 153 930 255 L 1020 255" 
+          fill="none" stroke="#00f2fe" stroke-width="3" filter="url(#mGlow)" />
+    <text x="640" y="16" fill="#00f2fe" font-family="sans-serif" font-size="11" font-weight="bold">✓ ІДЕАЛЬНИЙ ТЮНІНГ (Melodyne Pitch Center)</text>
+
+    <!-- MELODYNE ORANGE BLOBS (Famous Note Blobs with Vibrato Modulation) -->
+
+    <!-- Note 1: E3 -->
+    <g transform="translate(30, 396)">
+      <!-- Note blob body -->
+      <path d="M 0 12 C 20 2, 80 4, 110 12 C 80 20, 20 22, 0 12 Z" fill="url(#blobOrange)" filter="url(#mGlow)" opacity="0.95"/>
+      <line x1="5" y1="12" x2="105" y2="12" stroke="#ffffff" stroke-width="2"/>
+      <!-- Pitch vibrato wave inside blob -->
+      <path d="M 10 12 Q 25 6 40 12 T 70 12 T 100 12" fill="none" stroke="#ffe066" stroke-width="2"/>
+      <text x="45" y="15" fill="#1e293b" font-family="sans-serif" font-size="10" font-weight="bold">E3</text>
+    </g>
+
+    <!-- Note 2: G3 -->
+    <g transform="translate(170, 243)">
+      <path d="M 0 12 C 25 0, 95 0, 120 12 C 95 24, 25 24, 0 12 Z" fill="url(#blobOrange)" filter="url(#mGlow)" opacity="0.95"/>
+      <line x1="5" y1="12" x2="115" y2="12" stroke="#ffffff" stroke-width="2"/>
+      <path d="M 10 12 Q 25 7 40 12 T 70 12 T 100 12 T 110 12" fill="none" stroke="#ffe066" stroke-width="2"/>
+      <text x="50" y="15" fill="#1e293b" font-family="sans-serif" font-size="10" font-weight="bold">G3</text>
+    </g>
+
+    <!-- Note 3: A3 -->
+    <g transform="translate(325, 141)">
+      <path d="M 0 12 C 30 -2, 130 -2, 160 12 C 130 26, 30 26, 0 12 Z" fill="url(#blobOrange)" filter="url(#mGlow)" opacity="0.95"/>
+      <line x1="5" y1="12" x2="155" y2="12" stroke="#ffffff" stroke-width="2"/>
+      <path d="M 10 12 Q 25 6 40 12 T 70 12 T 100 12 T 130 12 T 150 12" fill="none" stroke="#ffe066" stroke-width="2"/>
+      <text x="70" y="15" fill="#1e293b" font-family="sans-serif" font-size="10" font-weight="bold">A3 (Vocal Climax)</text>
+    </g>
+
+    <!-- Note 4: C4 (High chorus note) -->
+    <g transform="translate(525, 13)">
+      <path d="M 0 12 C 40 -4, 180 -4, 220 12 C 180 28, 40 28, 0 12 Z" fill="url(#blobPink)" filter="url(#mGlow)" opacity="0.95"/>
+      <line x1="5" y1="12" x2="215" y2="12" stroke="#ffffff" stroke-width="2.5"/>
+      <path d="M 10 12 Q 25 5 40 12 T 70 12 T 100 12 T 130 12 T 160 12 T 190 12 T 210 12" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <text x="95" y="16" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold">C4 (Perfect Pitch)</text>
+    </g>
+
+    <!-- Note 5: A3 -->
+    <g transform="translate(780, 141)">
+      <path d="M 0 12 C 20 0, 85 0, 110 12 C 85 24, 20 24, 0 12 Z" fill="url(#blobOrange)" filter="url(#mGlow)" opacity="0.95"/>
+      <line x1="5" y1="12" x2="105" y2="12" stroke="#ffffff" stroke-width="2"/>
+      <path d="M 10 12 Q 25 7 40 12 T 70 12 T 95 12" fill="none" stroke="#ffe066" stroke-width="2"/>
+      <text x="45" y="15" fill="#1e293b" font-family="sans-serif" font-size="10" font-weight="bold">A3</text>
+    </g>
+
+    <!-- Note 6: G3 -->
+    <g transform="translate(925, 243)">
+      <path d="M 0 12 C 20 2, 75 2, 95 12 C 75 22, 20 22, 0 12 Z" fill="url(#blobCyan)" filter="url(#mGlow)" opacity="0.95"/>
+      <line x1="5" y1="12" x2="90" y2="12" stroke="#ffffff" stroke-width="2"/>
+      <path d="M 10 12 Q 25 6 40 12 T 70 12 T 85 12" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <text x="35" y="15" fill="#04101e" font-family="sans-serif" font-size="10" font-weight="bold">G3</text>
+    </g>
+
+    <!-- Playhead / Cursor (Red vertical line) -->
+    <g transform="translate(640, 0)">
+      <line x1="0" y1="0" x2="0" y2="618" stroke="#ff2a85" stroke-width="2" filter="url(#mGlow)"/>
+      <polygon points="-6,0 6,0 0,10" fill="#ff2a85" />
+    </g>
+
+  </g>
+</svg>

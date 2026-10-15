@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="synthChassis" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="40%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#070c14" />
+    </linearGradient>
+    <linearGradient id="wheelGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="50%" stop-color="#64748b" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="lcdGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#041b30" />
+      <stop offset="100%" stop-color="#082b4a" />
+    </linearGradient>
+    <linearGradient id="glowCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="whiteKeyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="90%" stop-color="#f1f5f9" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+    <linearGradient id="blackKeyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="85%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <filter id="synthGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Studio Background with Neon Glows -->
+  <rect width="1200" height="700" fill="#060d17" />
+  
+  <!-- Ambient Studio Lighting -->
+  <ellipse cx="600" cy="200" rx="450" ry="200" fill="#0284c7" opacity="0.15" filter="url(#synthGlow)"/>
+  <ellipse cx="200" cy="300" rx="200" ry="150" fill="#ea580c" opacity="0.12" filter="url(#synthGlow)"/>
+  <ellipse cx="1000" cy="300" rx="200" ry="150" fill="#ec4899" opacity="0.12" filter="url(#synthGlow)"/>
+
+  <!-- Main Synthesizer Chassis Body -->
+  <g transform="translate(40, 50)">
+    <!-- Chassis Shadow & Outer Shell -->
+    <rect x="0" y="0" width="1120" height="600" rx="18" fill="url(#synthChassis)" stroke="#38bdf8" stroke-width="2" filter="url(#synthGlow)"/>
+    <rect x="10" y="10" width="1100" height="580" rx="14" fill="#0b1320" stroke="#1e293b" stroke-width="1.5"/>
+
+    <!-- Yamaha Logo & Header Section -->
+    <g transform="translate(45, 30)">
+      <!-- Yamaha 3 Tuning Forks Logo -->
+      <circle cx="16" cy="18" r="16" fill="#0284c7" filter="url(#synthGlow)"/>
+      <line x1="16" y1="6" x2="16" y2="30" stroke="#ffffff" stroke-width="2.5"/>
+      <line x1="6" y1="12" x2="26" y2="24" stroke="#ffffff" stroke-width="2.5"/>
+      <line x1="6" y1="24" x2="26" y2="12" stroke="#ffffff" stroke-width="2.5"/>
+      <circle cx="16" cy="18" r="7" fill="#0284c7" stroke="#ffffff" stroke-width="2"/>
+
+      <text x="42" y="26" fill="#ffffff" font-family="'Segoe UI', 'Arial Black', sans-serif" font-weight="900" font-size="26" letter-spacing="4">YAMAHA</text>
+      <text x="210" y="26" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-weight="700" font-size="14" letter-spacing="2">MOTIF XF7 MUSIC PRODUCTION SYNTHESIZER</text>
+      <text x="750" y="26" fill="#ff7e40" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="12">EXPANDED ARTICULATION • AWM2 TONE GENERATOR</text>
+    </g>
+
+    <!-- Control Surface: Left Pitch & Mod Wheels -->
+    <g transform="translate(45, 80)">
+      <rect width="115" height="240" rx="8" fill="#060b13" stroke="#1e293b"/>
+      
+      <!-- Pitch Bend Wheel -->
+      <g transform="translate(20, 20)">
+        <rect width="32" height="150" rx="6" fill="url(#wheelGrad)" stroke="#475569"/>
+        <!-- Grip notches -->
+        <line x1="4" y1="75" x2="28" y2="75" stroke="#00f2fe" stroke-width="4" filter="url(#synthGlow)"/>
+        <line x1="4" y1="60" x2="28" y2="60" stroke="#0f172a" stroke-width="2"/>
+        <line x1="4" y1="90" x2="28" y2="90" stroke="#0f172a" stroke-width="2"/>
+        <text x="-5" y="175" fill="#94a3b8" font-family="sans-serif" font-size="9" font-weight="bold">PITCH BEND</text>
+      </g>
+
+      <!-- Modulation Wheel -->
+      <g transform="translate(65, 20)">
+        <rect width="32" height="150" rx="6" fill="url(#wheelGrad)" stroke="#475569"/>
+        <!-- Notch positioned higher -->
+        <line x1="4" y1="40" x2="28" y2="40" stroke="#ff7e40" stroke-width="4" filter="url(#synthGlow)"/>
+        <line x1="4" y1="25" x2="28" y2="25" stroke="#0f172a" stroke-width="2"/>
+        <line x1="4" y1="55" x2="28" y2="55" stroke="#0f172a" stroke-width="2"/>
+        <text x="-2" y="175" fill="#94a3b8" font-family="sans-serif" font-size="9" font-weight="bold">MODULATION</text>
+      </g>
+
+      <!-- Octave Buttons -->
+      <rect x="15" y="200" width="38" height="25" rx="4" fill="#0284c7" />
+      <text x="24" y="217" fill="#fff" font-family="sans-serif" font-size="11" font-weight="bold">OCT -</text>
+      <rect x="62" y="200" width="38" height="25" rx="4" fill="#0284c7" />
+      <text x="70" y="217" fill="#fff" font-family="sans-serif" font-size="11" font-weight="bold">OCT +</text>
+    </g>
+
+    <!-- Control Surface: Sliders & Knobs -->
+    <g transform="translate(180, 80)">
+      <rect width="270" height="240" rx="8" fill="#060b13" stroke="#1e293b"/>
+      <text x="15" y="24" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="bold">REALTIME CONTROL SLIDERS (CS1 - CS4)</text>
+
+      <!-- 4 Sliders -->
+      <g transform="translate(25, 45)">
+        <rect x="0" y="0" width="8" height="140" rx="4" fill="#030712" />
+        <rect x="-10" y="30" width="28" height="25" rx="4" fill="#38bdf8" filter="url(#synthGlow)"/>
+        <text x="-12" y="160" fill="#94a3b8" font-family="sans-serif" font-size="10">CUTOFF</text>
+      </g>
+      <g transform="translate(90, 45)">
+        <rect x="0" y="0" width="8" height="140" rx="4" fill="#030712" />
+        <rect x="-10" y="70" width="28" height="25" rx="4" fill="#ff7e40" filter="url(#synthGlow)"/>
+        <text x="-12" y="160" fill="#94a3b8" font-family="sans-serif" font-size="10">RESON</text>
+      </g>
+      <g transform="translate(155, 45)">
+        <rect x="0" y="0" width="8" height="140" rx="4" fill="#030712" />
+        <rect x="-10" y="50" width="28" height="25" rx="4" fill="#ec4899" filter="url(#synthGlow)"/>
+        <text x="-12" y="160" fill="#94a3b8" font-family="sans-serif" font-size="10">ATTACK</text>
+      </g>
+      <g transform="translate(220, 45)">
+        <rect x="0" y="0" width="8" height="140" rx="4" fill="#030712" />
+        <rect x="-10" y="40" width="28" height="25" rx="4" fill="#00f2fe" filter="url(#synthGlow)"/>
+        <text x="-14" y="160" fill="#94a3b8" font-family="sans-serif" font-size="10">RELEASE</text>
+      </g>
+    </g>
+
+    <!-- Center: Large Hi-Res Color LCD Screen -->
+    <g transform="translate(470, 80)">
+      <rect width="400" height="240" rx="10" fill="#020813" stroke="#00e5ff" stroke-width="2" filter="url(#synthGlow)"/>
+      <rect x="8" y="8" width="384" height="224" rx="6" fill="url(#lcdGrad)"/>
+      
+      <!-- LCD Screen Header -->
+      <rect x="8" y="8" width="384" height="32" fill="#04223f" />
+      <text x="20" y="30" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-weight="bold" font-size="14">VOICE 001: [PRE 1: A01] CFX Concert Grand</text>
+      <text x="315" y="30" fill="#ff7e40" font-family="monospace" font-size="13" font-weight="bold">120 BPM</text>
+
+      <!-- LCD Content: Waveform & Harmony Info -->
+      <g transform="translate(25, 55)">
+        <text x="0" y="18" fill="#e2e8f0" font-family="sans-serif" font-size="12" font-weight="bold">VOICE CATEGORY: PIANO &amp; VOCAL ARRANGEMENT</text>
+        <text x="0" y="38" fill="#94a3b8" font-family="sans-serif" font-size="11">Arpeggiator: Modern Pop Ballad 16-Beat [SYNC ON]</text>
+        <text x="0" y="56" fill="#94a3b8" font-family="sans-serif" font-size="11">Vocal Harmonizer: +3rd &amp; +5th Diatonic Chord</text>
+
+        <!-- LCD Waveform scope -->
+        <rect x="0" y="70" width="350" height="75" rx="6" fill="#021124" stroke="#0284c7" />
+        <path d="M 10 108 
+                 C 30 50, 50 160, 70 108 
+                 C 90 70, 110 145, 130 108 
+                 C 150 45, 170 165, 190 108 
+                 C 210 75, 230 140, 250 108 
+                 C 270 50, 290 160, 310 108 L 340 108" 
+              fill="none" stroke="#00f2fe" stroke-width="2.5" filter="url(#synthGlow)"/>
+        
+        <!-- Effects Status on LCD -->
+        <rect x="0" y="155" width="80" height="18" rx="3" fill="#0284c7" />
+        <text x="12" y="168" fill="#fff" font-family="sans-serif" font-size="9" font-weight="bold">REV: REV-X</text>
+
+        <rect x="90" y="155" width="80" height="18" rx="3" fill="#ea580c" />
+        <text x="102" y="168" fill="#fff" font-family="sans-serif" font-size="9" font-weight="bold">CHOR: DUAL</text>
+
+        <rect x="180" y="155" width="80" height="18" rx="3" fill="#db2777" />
+        <text x="190" y="168" fill="#fff" font-family="sans-serif" font-size="9" font-weight="bold">COMP: VCM</text>
+
+        <rect x="270" y="155" width="80" height="18" rx="3" fill="#10b981" />
+        <text x="280" y="168" fill="#fff" font-family="sans-serif" font-size="9" font-weight="bold">MASTER: ON</text>
+      </g>
+    </g>
+
+    <!-- Right Control Panel: Jog Wheel & Bank Buttons -->
+    <g transform="translate(890, 80)">
+      <rect width="185" height="240" rx="8" fill="#060b13" stroke="#1e293b"/>
+      
+      <!-- Big Value Dial / Data Wheel -->
+      <g transform="translate(92, 70)">
+        <circle cx="0" cy="0" r="45" fill="#1e293b" stroke="#38bdf8" stroke-width="3" filter="url(#synthGlow)"/>
+        <circle cx="0" cy="0" r="32" fill="#0f172a" />
+        <!-- Finger indent -->
+        <circle cx="18" cy="-18" r="8" fill="#030712" />
+        <text x="-25" y="60" fill="#94a3b8" font-family="sans-serif" font-size="10" font-weight="bold">DATA / DIAL</text>
+      </g>
+
+      <!-- Category Buttons -->
+      <g transform="translate(20, 145)">
+        <rect x="0" y="0" width="32" height="24" rx="3" fill="#0284c7" />
+        <text x="6" y="16" fill="#fff" font-family="sans-serif" font-size="10" font-weight="bold">PIANO</text>
+
+        <rect x="38" y="0" width="32" height="24" rx="3" fill="#1e293b" />
+        <text x="44" y="16" fill="#94a3b8" font-family="sans-serif" font-size="10">SYNTH</text>
+
+        <rect x="76" y="0" width="32" height="24" rx="3" fill="#1e293b" />
+        <text x="82" y="16" fill="#94a3b8" font-family="sans-serif" font-size="10">ORGAN</text>
+
+        <rect x="114" y="0" width="32" height="24" rx="3" fill="#1e293b" />
+        <text x="120" y="16" fill="#94a3b8" font-family="sans-serif" font-size="10">PAD</text>
+
+        <rect x="0" y="32" width="68" height="26" rx="4" fill="#ea580c" />
+        <text x="14" y="49" fill="#fff" font-family="sans-serif" font-size="11" font-weight="bold">ENTER</text>
+
+        <rect x="76" y="32" width="70" height="26" rx="4" fill="#334155" />
+        <text x="94" y="49" fill="#fff" font-family="sans-serif" font-size="11" font-weight="bold">EXIT</text>
+      </g>
+    </g>
+
+    <!-- KEYBED: 61 Keys Piano Keyboard Bed with 3D Depth -->
+    <g transform="translate(45, 340)">
+      <!-- Keybed Bed Plate & Red Felt Strip -->
+      <rect width="1030" height="235" rx="6" fill="#060910" stroke="#1e293b" stroke-width="2"/>
+      <!-- Famous Red Felt Key Bushing Strip -->
+      <rect x="0" y="0" width="1030" height="6" fill="#dc2626" />
+
+      <!-- White Keys (30 visible full-size white keys across the frame) -->
+      <!-- We render repeating white keys: width: 34px each, height: 220px -->
+      <g transform="translate(5, 6)">
+        <!-- Generates 30 white keys with gradients and subtle gaps -->
+        <defs>
+          <pattern id="whiteKey" width="34" height="220" patternUnits="userSpaceOnUse">
+            <rect x="1" y="0" width="32" height="215" rx="4" fill="url(#whiteKeyGrad)" stroke="#94a3b8" stroke-width="0.8"/>
+            <rect x="1" y="200" width="32" height="15" rx="2" fill="#cbd5e1" />
+          </pattern>
+        </defs>
+        <rect width="1020" height="220" fill="url(#whiteKey)" />
+
+        <!-- Black Keys (arranged in natural piano 2-3-2-3-2-3 layout) -->
+        <!-- Octave 1: C# D# / F# G# A# -->
+        <rect x="23" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+        <rect x="57" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+
+        <rect x="125" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+        <rect x="159" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+        <rect x="193" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+
+        <!-- Octave 2 -->
+        <rect x="261" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+        <rect x="295" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+
+        <rect x="363" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+        <rect x="397" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+        <rect x="431" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+
+        <!-- Octave 3 (Active chord keys lit up with cyan glow!) -->
+        <rect x="499" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+        <rect x="533" y="0" width="20" height="135" rx="3" fill="#00e5ff" stroke="#ffffff" stroke-width="1.5" filter="url(#synthGlow)"/>
+
+        <rect x="601" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+        <rect x="635" y="0" width="20" height="135" rx="3" fill="#ff7e40" stroke="#ffffff" stroke-width="1.5" filter="url(#synthGlow)"/>
+        <rect x="669" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+
+        <!-- Octave 4 -->
+        <rect x="737" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+        <rect x="771" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+
+        <rect x="839" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+        <rect x="873" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+        <rect x="907" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+
+        <!-- Octave 5 -->
+        <rect x="975" y="0" width="20" height="135" rx="3" fill="url(#blackKeyGrad)" stroke="#0f172a"/>
+      </g>
+    </g>
+  </g>
+</svg>
