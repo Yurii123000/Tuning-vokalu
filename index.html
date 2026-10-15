@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тюнінг Вокалу & Звукорежисура | Аранжування пісень</title>
+  <meta name="description" content="Професійний тюнінг вокалу в Melodyne, мастеринг, ефекти (реверберація, компресія, делей) та аранжування пісень в Suno, GarageBand і під синтезатор Yamaha.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>">
+</head>
+<body>
+
+  <!-- Ambient Background Backdrop (Dynamic Software Wallpaper) -->
+  <div id="ambientBg" class="ambient-bg-layer"></div>
+  <div class="ambient-overlay-glow"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-nav">
+    <div class="container nav-content">
+      <a href="#" class="brand-logo">
+        <div class="brand-icon-box">🎚️</div>
+        <div>
+          <span class="brand-title">VocalStudio<span style="color: var(--sky-400);">Pro</span></span>
+          <span class="brand-sub">Звукорежисура &bull; Тюнінг &bull; Аранжування</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#comparison">Порівняння (A/B)</a></li>
+        <li><a href="#services">Послуги</a></li>
+        <li><a href="#software">Робочий простір</a></li>
+        <li><a href="#workflow">Як це працює</a></li>
+        <li><a href="#contact" class="nav-cta-btn">Замовити трек</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="badge-pill">
+        <span class="badge-pulse-dot"></span>
+        <span>Професійна звукорежисура &bull; FL Studio &bull; Melodyne &bull; Suno &bull; Yamaha</span>
+      </div>
+
+      <h1 class="hero-title">
+        Ідеальний вокал <span class="gradient-text-sky">без фальшивих нот</span>. 
+        <span class="gradient-text-accent">Тюнінг, мастеринг та аранжування</span>
+      </h1>
+
+      <p class="hero-description">
+        Почуйте на власні вуха магію обробки звуку! Інтерактивне миттєве перемикання між 
+        <strong>сирим записом без обробки</strong> та <strong>готовим студійним звучанням</strong> з ювелірним тюнінгом, 
+        просторовою реверберацією, щільною компресією та стерео-делеєм.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#comparison" class="btn-primary">
+          <span>🎧</span> Слухати порівняння (A/B)
+        </a>
+        <a href="#contact" class="btn-secondary">
+          <span>💬</span> Замовити обробку вокалу
+        </a>
+      </div>
+
+      <div class="hero-features-bar">
+        <div class="feature-tag tag-cyan">
+          <span>🎯</span> Тюнінг нот у Melodyne
+        </div>
+        <div class="feature-tag tag-orange">
+          <span>🎹</span> Аранжування під синтезатор Yamaha
+        </div>
+        <div class="feature-tag tag-pink">
+          <span>🤖</span> Аранжування пісень у Suno AI
+        </div>
+        <div class="feature-tag tag-cyan">
+          <span>🍏</span> Продакшн у GarageBand
+        </div>
+        <div class="feature-tag tag-orange">
+          <span>🔊</span> Мастеринг та компресія
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive A/B Comparison Player Section -->
+  <section id="comparison" class="player-section">
+    <div class="container">
+      <div class="player-main-card">
+        
+        <!-- Player Top Bar -->
+        <div class="player-header">
+          <div class="player-title-wrap">
+            <h2 id="activeTrackTitle">ПІСЛЯ ОБРОБКИ (Ювелірний тюнінг Melodyne, Reverb, Delay, Compression, EQ)</h2>
+            <p>Натисніть Play та перемикайте кнопки «ДО» і «ПІСЛЯ» прямо під час відтворення треку!</p>
+          </div>
+          <div id="playerBadgeStatus" class="player-badge-status status-wet">
+            🟢 ПІСЛЯ: Тюнінг Melodyne + Зведення FX
+          </div>
+        </div>
+
+        <!-- BIG PHYSICAL-LIKE A/B SWITCH -->
+        <div class="ab-switch-container">
+          <div id="abSwitchBox" class="ab-switch-box">
+            <button id="btnModeBefore" class="ab-btn" type="button" title="Перемкнути на сирий трек без тюнінгу і ефектів">
+              <span class="ab-led"></span>
+              <span>🔴 ДО (Без тюнінгу)</span>
+            </button>
+            <button id="btnModeAfter" class="ab-btn active-after" type="button" title="Перемкнути на готовий трек з тюнінгом та ефектами">
+              <span class="ab-led"></span>
+              <span>🟢 ПІСЛЯ (Тюнінг + FX)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Real-time Visualizer Canvas -->
+        <div class="visualizer-wrapper">
+          <canvas id="audioVisualizer"></canvas>
+          <div class="canvas-overlay-text">LIVE SPECTRUM &amp; OSCILLOSCOPE</div>
+        </div>
+
+        <!-- Player Controls (Timeline, Play/Pause, Volume) -->
+        <div class="player-controls-strip">
+          <div class="timeline-container">
+            <span id="timeCurrent" class="time-display">00:00</span>
+            <div id="seekBarTrack" class="seek-bar-track">
+              <div id="seekBarFill" class="seek-bar-fill"></div>
+              <div id="seekBarThumb" class="seek-bar-thumb"></div>
+            </div>
+            <span id="timeTotal" class="time-display">00:12</span>
+          </div>
+
+          <div class="control-buttons-row">
+            <div class="playback-controls">
+              <button id="btnPlay" class="btn-ctrl btn-play-hero" type="button" aria-label="Грати">
+                <span id="playIcon">▶</span>
+              </button>
+              <button id="btnLoop" class="btn-ctrl" type="button" title="Повтор треку (Loop)" style="color: var(--sky-400);">
+                <span>🔁</span>
+              </button>
+            </div>
+
+            <!-- Volume Control -->
+            <div class="volume-wrap">
+              <button id="btnMute" class="btn-ctrl" type="button" style="width: 32px; height: 32px; font-size: 0.9rem;" title="Вимкнути звук">
+                <span id="muteIcon">🔊</span>
+              </button>
+              <input id="volSlider" type="range" class="vol-slider" min="0" max="1" step="0.01" value="0.85" title="Гучність">
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Effects Rack (Visual Indicators) -->
+        <div class="effects-rack">
+          <div class="rack-title">
+            <span>🎛️</span> Студійний ланцюг обробки (FX Chain Status)
+          </div>
+          <div class="fx-grid">
+            <div class="fx-card active">
+              <div class="fx-name">
+                <span>🎯</span>
+                <div>
+                  <strong>Melodyne Pitch</strong>
+                  <div style="font-size: 0.72rem; color: var(--text-dim);">Без фальшивих нот</div>
+                </div>
+              </div>
+              <span class="fx-pill">АКТИВНО</span>
+            </div>
+
+            <div class="fx-card active">
+              <div class="fx-name">
+                <span>🎚️</span>
+                <div>
+                  <strong>Vocal Compressor</strong>
+                  <div style="font-size: 0.72rem; color: var(--text-dim);">Щільність &amp; Баланс</div>
+                </div>
+              </div>
+              <span class="fx-pill">АКТИВНО</span>
+            </div>
+
+            <div class="fx-card active">
+              <div class="fx-name">
+                <span>🌊</span>
+                <div>
+                  <strong>Studio Reverb</strong>
+                  <div style="font-size: 0.72rem; color: var(--text-dim);">Глибина &amp; Простір</div>
+                </div>
+              </div>
+              <span class="fx-pill">АКТИВНО</span>
+            </div>
+
+            <div class="fx-card active">
+              <div class="fx-name">
+                <span>⏱️</span>
+                <div>
+                  <strong>Stereo Delay</strong>
+                  <div style="font-size: 0.72rem; color: var(--text-dim);">Стерео-відлуння</div>
+                </div>
+              </div>
+              <span class="fx-pill">АКТИВНО</span>
+            </div>
+
+            <div class="fx-card active">
+              <div class="fx-name">
+                <span>✨</span>
+                <div>
+                  <strong>Air EQ &amp; Limiter</strong>
+                  <div style="font-size: 0.72rem; color: var(--text-dim);">Прозорі високі</div>
+                </div>
+              </div>
+              <span class="fx-pill">АКТИВНО</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Audio Files Management - Dual Drop & Upload Cards -->
+        <div class="audio-files-uploader-box">
+          <div class="uploader-header">
+            <h3>📥 Завантаження ваших аудіотреків для порівняння</h3>
+            <p id="fileStatusMsg">Виберіть або перетягніть мишкою сюди аудіофайли (MP3, WAV, M4A, OGG):</p>
+          </div>
+
+          <div class="dual-upload-grid">
+            <!-- Card 1: Track Before -->
+            <div id="dropZoneBefore" class="upload-card card-before">
+              <div class="upload-card-top">
+                <span class="upload-badge badge-before">🔴 Трек 1: ДО ОБРОБКИ</span>
+                <span class="upload-hint">Сирий запис без тюнінгу</span>
+              </div>
+              
+              <div id="cardInfoBefore" class="upload-card-content">
+                <div class="empty-file-prompt">
+                  <span class="upload-cloud-icon">📂</span>
+                  <p>Перетягніть аудіо сюди або натисніть:</p>
+                </div>
+              </div>
+
+              <div class="upload-action-wrap">
+                <label class="btn-upload-file btn-upload-before">
+                  <span>📁 Вибрати файл «ДО»</span>
+                  <input id="fileInputBefore" type="file" accept="audio/*" style="display: none;">
+                </label>
+              </div>
+            </div>
+
+            <!-- Card 2: Track After -->
+            <div id="dropZoneAfter" class="upload-card card-after">
+              <div class="upload-card-top">
+                <span class="upload-badge badge-after">🟢 Трек 2: ПІСЛЯ ОБРОБКИ</span>
+                <span class="upload-hint">Тюнінг + Зведення (FX)</span>
+              </div>
+
+              <div id="cardInfoAfter" class="upload-card-content">
+                <div class="empty-file-prompt">
+                  <span class="upload-cloud-icon">📂</span>
+                  <p>Перетягніть аудіо сюди або натисніть:</p>
+                </div>
+              </div>
+
+              <div class="upload-action-wrap">
+                <label class="btn-upload-file btn-upload-after">
+                  <span>📁 Вибрати файл «ПІСЛЯ»</span>
+                  <input id="fileInputAfter" type="file" accept="audio/*" style="display: none;">
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section (Послуги) -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Чим я можу вам допомогти</span>
+        <h2 class="section-title">Мої послуги зі звукорежисури та продакшну</h2>
+        <p class="section-desc">
+          Повний цикл створення пісні: від аранжування та підбору гармоній до детального тюнінгу вокалу та фінального мастерингу.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        
+        <!-- Service 1: Vocal Tuning -->
+        <div class="service-card highlight-orange">
+          <div class="service-icon-wrap">🎙️</div>
+          <h3>Тюнінг вокалу (Melodyne)</h3>
+          <p>
+            Ювелірне ручне виправлення кожної фальшивої або невпевненої ноти у Celemony Melodyne. 
+            Вокал звучить кришталево чисто, професійно та природно — без роботизованого звуку, 
+            зі збереженням живих емоцій артиста (або зі стильним Auto-Tune ефектом за вашим бажанням).
+          </p>
+          <ul class="service-features-list">
+            <li><span class="check">✓</span> 100% точне попадання в тональність</li>
+            <li><span class="check">✓</span> Вирівнювання таймінгу та ритміки фраз</li>
+            <li><span class="check">✓</span> Збереження природного вібрато і дихання</li>
+          </ul>
+          <a href="#contact" class="btn-secondary" style="text-align: center; justify-content: center;">Замовити тюнінг</a>
+        </div>
+
+        <!-- Service 2: Mixing & Sound Effects -->
+        <div class="service-card highlight-pink">
+          <div class="service-icon-wrap">🎚️</div>
+          <h3>Звукорежисура &amp; Ефекти до вокалу</h3>
+          <p>
+            Студійна обробка голосу: правильна динамічна компресія, щоб вокал сидів монолітно в міксі, 
+            глибока просторова реверберація для об'єму, стильний темповий стерео-делей, хірургічна еквалізація та видалення різких звуків (деессер).
+          </p>
+          <ul class="service-features-list">
+            <li><span class="check">✓</span> Оптична та VCA компресія</li>
+            <li><span class="check">✓</span> Об'ємні простори (Hall, Plate, Room Reverb)</li>
+            <li><span class="check">✓</span> Ping-Pong &amp; Tape стерео-делеї</li>
+          </ul>
+          <a href="#contact" class="btn-secondary" style="text-align: center; justify-content: center;">Замовити зведення</a>
+        </div>
+
+        <!-- Service 3: Suno Arrangement -->
+        <div class="service-card">
+          <div class="service-icon-wrap">🤖</div>
+          <h3>Аранжування пісень у Suno AI</h3>
+          <p>
+            Створення сучасного аранжування в програмі Suno з подальшим професійним доопрацюванням. 
+            Підберу ідеальний жанр, настрій, темп та структуру під ваш текст або вокальну мелодію, 
+            зроблю розділення доріжок (стемів) та їх фірмове доведення до розуму.
+          </p>
+          <ul class="service-features-list">
+            <li><span class="check">✓</span> Будь-який жанр: Pop, Rock, Hip-Hop, Dance, R&amp;B</li>
+            <li><span class="check">✓</span> Побудова чіткої структури пісні (куплет, приспів, бридж)</li>
+            <li><span class="check">✓</span> Чистка та покращення якості згенерованого аудіо</li>
+          </ul>
+          <a href="#contact" class="btn-secondary" style="text-align: center; justify-content: center;">Замовити у Suno</a>
+        </div>
+
+        <!-- Service 4: Yamaha Synthesizer Arrangement -->
+        <div class="service-card highlight-orange">
+          <div class="service-icon-wrap">🎹</div>
+          <h3>Аранжування під синтезатор Yamaha</h3>
+          <p>
+            Живий супровід та аранжування на синтезаторі Yamaha. Живе фортепіано, теплі аналогові педи, 
+            струнні групи, басові лінії та ритмічні гармонії. Ідеально підходить для душевних балад, 
+            естрадних пісень, романсів або каверів під клавішні.
+          </p>
+          <ul class="service-features-list">
+            <li><span class="check">✓</span> Підбір гармонії та акомпанементу на слух</li>
+            <li><span class="check">✓</span> Фірмові тембри Yamaha (CFX Concert Grand, Strings)</li>
+            <li><span class="check">✓</span> Запис живих MIDI та Audio доріжок</li>
+          </ul>
+          <a href="#contact" class="btn-secondary" style="text-align: center; justify-content: center;">Замовити під синтезатор</a>
+        </div>
+
+        <!-- Service 5: GarageBand Production -->
+        <div class="service-card">
+          <div class="service-icon-wrap">🍏</div>
+          <h3>Аранжування в GarageBand</h3>
+          <p>
+            Продакшн та створення повноцінних мінусовок у середовищі GarageBand. 
+            Поєднання віртуальних барабанів, гітарних підсилювачів, синтезаторів та лупів. 
+            Швидка та якісна реалізація треку для сольних виконавців і авторів пісень.
+          </p>
+          <ul class="service-features-list">
+            <li><span class="check">✓</span> Створення каверів та авторських мінусовок</li>
+            <li><span class="check">✓</span> Гнучкий проект для відкриття на Mac / iPad</li>
+            <li><span class="check">✓</span> Експорт у високій роздільній здатності WAV 24-bit</li>
+          </ul>
+          <a href="#contact" class="btn-secondary" style="text-align: center; justify-content: center;">Замовити в GarageBand</a>
+        </div>
+
+        <!-- Service 6: Mastering -->
+        <div class="service-card highlight-pink">
+          <div class="service-icon-wrap">🎧</div>
+          <h3>Мастеринг та фінальний поліш</h3>
+          <p>
+            Фінальний етап підготовки треку до релізу на Spotify, Apple Music, YouTube та радіо. 
+            Доведення гучності до комерційних стандартів (-14 LUFS), частотний баланс, 
+            розширення стереобази та м'яке аналогове лімітування без перевантажень.
+          </p>
+          <ul class="service-features-list">
+            <li><span class="check">✓</span> Стримінгова оптимізація гучності</li>
+            <li><span class="check">✓</span> Баланс низьких та прозорих високих частот</li>
+            <li><span class="check">✓</span> Перевірка на моно-сумісність</li>
+          </ul>
+          <a href="#contact" class="btn-secondary" style="text-align: center; justify-content: center;">Замовити мастеринг</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Studio Software & Instruments Showcase (FL Studio, Melodyne, GarageBand, Yamaha) -->
+  <section id="software" class="studio-showcase-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Студійний сетап</span>
+        <h2 class="section-title">Програми та інструменти, в яких я працюю</h2>
+        <p class="section-desc">
+          Кожна заставка нижче демонструє реальне робоче середовище. Ви можете переглянути їх у високій якості або 
+          встановити як фонову заставку сайту!
+        </p>
+      </div>
+
+      <div class="showcase-grid">
+
+        <!-- Card 1: FL Studio -->
+        <div class="showcase-card">
+          <div class="showcase-img-wrap" onclick="openImageModal('fl_studio')">
+            <img src="images/fl_studio.svg" alt="FL Studio DAW interface" class="showcase-img">
+            <span class="showcase-img-badge">DAW &bull; Зведення &bull; Мікшер</span>
+            <div class="showcase-actions-float">
+              <button class="btn-wallpaper-set" type="button" onclick="event.stopPropagation(); setAmbientBackground('fl_studio')">
+                🖼️ Фонова заставка
+              </button>
+            </div>
+          </div>
+          <div class="showcase-info">
+            <div>
+              <h3>FL Studio 24 Pro Console</h3>
+              <p>
+                Потужна робоча станція, де відбувається зведення каналів вокалу, налаштування шин реверберації, делею, 
+                параметричного EQ та фінального мастеринг-ланцюга.
+              </p>
+            </div>
+            <div class="showcase-tags">
+              <span class="mini-tag">Mixer Console</span>
+              <span class="mini-tag">Vocal Bus</span>
+              <span class="mini-tag">Parametric EQ 2</span>
+              <span class="mini-tag">Mastering Limiter</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Celemony Melodyne -->
+        <div class="showcase-card">
+          <div class="showcase-img-wrap" onclick="openImageModal('melodyne')">
+            <img src="images/melodyne.svg" alt="Celemony Melodyne pitch correction interface" class="showcase-img">
+            <span class="showcase-img-badge">Pitch Correction &bull; Тюнінг</span>
+            <div class="showcase-actions-float">
+              <button class="btn-wallpaper-set" type="button" onclick="event.stopPropagation(); setAmbientBackground('melodyne')">
+                🖼️ Фонова заставка
+              </button>
+            </div>
+          </div>
+          <div class="showcase-info">
+            <div>
+              <h3>Celemony Melodyne 5 Studio</h3>
+              <p>
+                Еталон світової звукорежисури для ручного тюнінгу вокалу. Ювелірне переміщення нот на точні щаблі тональності, 
+                згладжування перехідних коливань та контроль формант голосу.
+              </p>
+            </div>
+            <div class="showcase-tags">
+              <span class="mini-tag">Note Blobs</span>
+              <span class="mini-tag">Pitch Center</span>
+              <span class="mini-tag">Vibrato Control</span>
+              <span class="mini-tag">Formant Filter</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Apple GarageBand -->
+        <div class="showcase-card">
+          <div class="showcase-img-wrap" onclick="openImageModal('garageband')">
+            <img src="images/garageband.svg" alt="Apple GarageBand studio interface" class="showcase-img">
+            <span class="showcase-img-badge">Apple Music Production &bull; Аранжування</span>
+            <div class="showcase-actions-float">
+              <button class="btn-wallpaper-set" type="button" onclick="event.stopPropagation(); setAmbientBackground('garageband')">
+                🖼️ Фонова заставка
+              </button>
+            </div>
+          </div>
+          <div class="showcase-info">
+            <div>
+              <h3>Apple GarageBand Pro Studio</h3>
+              <p>
+                Зручне середовище для аранжування, запису живих інструментів, складання партій під вокал 
+                та створення мінусовок з автентичним аналоговим забарвленням ламп та підсилювачів.
+              </p>
+            </div>
+            <div class="showcase-tags">
+              <span class="mini-tag">Smart Controls</span>
+              <span class="mini-tag">Tube Preamp 60W</span>
+              <span class="mini-tag">Multi-Track Edit</span>
+              <span class="mini-tag">Space Designer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Yamaha Synthesizer -->
+        <div class="showcase-card">
+          <div class="showcase-img-wrap" onclick="openImageModal('yamaha')">
+            <img src="images/yamaha.svg" alt="Yamaha Synthesizer Workstation" class="showcase-img">
+            <span class="showcase-img-badge">Hardware &bull; Живий синтезатор &bull; Клавішні</span>
+            <div class="showcase-actions-float">
+              <button class="btn-wallpaper-set" type="button" onclick="event.stopPropagation(); setAmbientBackground('yamaha')">
+                🖼️ Фонова заставка
+              </button>
+            </div>
+          </div>
+          <div class="showcase-info">
+            <div>
+              <h3>Синтезатор Yamaha Workstation</h3>
+              <p>
+                Легендарні фортепіанні тембри Yamaha CFX, насичені аналогові пади, синтезаторні ліди та акомпанемент. 
+                Жива музична експресія за допомогою коліс Pitch Bend, Modulation та чутливих клавіш.
+              </p>
+            </div>
+            <div class="showcase-tags">
+              <span class="mini-tag">61-Key Keybed</span>
+              <span class="mini-tag">CFX Grand Voice</span>
+              <span class="mini-tag">Pitch &amp; Mod Wheels</span>
+              <span class="mini-tag">Vocal Harmonizer</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Workflow Section (Як це працює) -->
+  <section id="workflow" class="workflow-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Простий процес співпраці</span>
+        <h2 class="section-title">Як ми створюємо ваш хіт</h2>
+        <p class="section-desc">Чотири простих кроки від вашої чернетки до комерційного звучання.</p>
+      </div>
+
+      <div class="workflow-steps-grid">
+        <div class="workflow-step">
+          <div class="step-number">1</div>
+          <h4>Надсилаєте вихідний запис</h4>
+          <p>Аудіофайл вокалу (запис на мікрофон або навіть диктофон), мінусовку чи ваш текст із побажаннями.</p>
+        </div>
+
+        <div class="workflow-step">
+          <div class="step-number">2</div>
+          <h4>Тюнінг та аранжування</h4>
+          <p>Я роблю ювелірний тюнінг нот у Melodyne, накладаю реверберацію, делей, компресію або пишу аранжування.</p>
+        </div>
+
+        <div class="workflow-step">
+          <div class="step-number">3</div>
+          <h4>Прослуховування демо</h4>
+          <p>Ви слухаєте демо версію треку ДО і ПІСЛЯ обробки, вносимо необхідні правки за вашим бажанням.</p>
+        </div>
+
+        <div class="workflow-step">
+          <div class="step-number">4</div>
+          <h4>Фінальний реліз</h4>
+          <p>Ви отримуєте повністю готовий трек у максимальній якості WAV та MP3, готовий до публікації на стримінгах.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Order Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-card">
+        
+        <div class="contact-info-col">
+          <span class="section-tag">Зв'яжіться зі мною</span>
+          <h2>Готові зробити ваш трек бездоганним?</h2>
+          <p>
+            Напишіть мені в будь-який зручний месенджер або заповніть форму праворуч. 
+            Розкажіть про ваш проект, надішліть демо або запитайте про ціну — я з радістю проконсультую!
+          </p>
+
+          <div class="messenger-buttons-list">
+            <a href="https://t.me/Jura_Iva" target="_blank" class="messenger-btn tg">
+              <span>✈️ Написати в Telegram</span>
+              <span>→</span>
+            </a>
+            <a href="viber://chat?number=" target="_blank" class="messenger-btn viber">
+              <span>🟣 Написати у Viber</span>
+              <span>→</span>
+            </a>
+            <a href="tel:+380000000000" class="messenger-btn phone">
+              <span>📞 Зателефонувати: +380 (__) ___-__-__</span>
+              <span>→</span>
+            </a>
+            <a href="https://instagram.com/" target="_blank" class="messenger-btn insta">
+              <span>📸 Написати в Instagram Direct</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrap">
+          <form id="orderForm">
+            <div class="form-group">
+              <label for="clientName">Ваше ім'я / Псевдонім:</label>
+              <input type="text" id="clientName" class="form-input" placeholder="Наприклад: Олексій / DJ Nova" required>
+            </div>
+
+            <div class="form-group">
+              <label for="clientPhone">Телефон або @Telegram нікнейм:</label>
+              <input type="text" id="clientPhone" class="form-input" placeholder="+380... або @username" required>
+            </div>
+
+            <div class="form-group">
+              <label for="clientService">Яка послуга вас цікавить?</label>
+              <select id="clientService" class="form-select">
+                <option value="Тюнінг вокалу (Melodyne)">Тюнінг вокалу (виправлення фальшивих нот)</option>
+                <option value="Звукорежисура та обробка ефектами">Зведення та ефекти (компресія, делей, реверб)</option>
+                <option value="Аранжування пісні в Suno">Аранжування пісні в програмі Suno</option>
+                <option value="Аранжування під синтезатор Yamaha">Аранжування під синтезатор Yamaha</option>
+                <option value="Аранжування в GarageBand">Аранжування в GarageBand</option>
+                <option value="Комплекс: Аранжування + Тюнінг + Мастеринг">Повний комплекс (Аранжування + Тюнінг + Зведення)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="clientDetails">Посилання на демо-запис або ваші побажання:</label>
+              <textarea id="clientDetails" class="form-textarea" placeholder="Вкажіть посилання на Google Диск / Telegram файл або опишіть, що саме потрібно зробити..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+              <span>🚀</span> Надіслати запит на обробку
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal for Image Viewing -->
+  <div id="imageModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Перегляд робочого середовища</h3>
+        <button id="modalCloseBtn" class="modal-close-btn" type="button">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImg" src="" alt="Studio backdrop preview" class="modal-img-preview">
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Студія звукорежисури та тюнінгу вокалу. Всі права захищено.</p>
+      <p style="margin-top: 6px; font-size: 0.8rem;">
+        Celemony Melodyne, FL Studio, Suno, GarageBand та Yamaha є зареєстрованими торговими марками відповідних правовласників.
+      </p>
+    </div>
+  <!-- Floating Toast Notification -->
+  <div id="toastNotice" class="toast-notice"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
